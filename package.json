@@ -1,0 +1,16 @@
+{
+  "name": "flags",
+  "version": "1.0.0",
+  "description": "",
+  "main": "flags.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
