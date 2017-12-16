@@ -40,6 +40,22 @@ app.get("/ping", (req,res) => {
 	console.log( 'Ping served to ' + req.ip)
 })
 
+app.get("/:id", (req,res) => {
+	cnx = dbConnect()
+	cnx.connect( (err) => {
+		if( err) throw err;
+		cnx.query( 'SELECT mapping.shortId, status.status FROM mapping RIGHT JOIN status ON mapping.id=status.id WHERE mapping.shortId=?', req.params.id, (err, result) => {
+			if( result.length == 0){
+				res.status(404).json({id:req.params.id});
+				console.log( 'Status ' + req.params.id + ' not found')
+			} else {
+				res.status(200).json({'id':req.params.id,status:result[0].status})
+				console.log( 'Status ' + req.params.id + ' returned to ' + res.ip)
+			}
+		})
+	})
+})
+
 // new status creation
 app.post("/", (req, res) => {
 	console.log( 'POST received from ' + req.ip)
