@@ -8,5 +8,8 @@ Create new status:
 curl -v -X POST http://seenapps.com:3000/
 will return a JSON object such as {"id":"xyz"}
 
-Amend an existing status
+Read existing status "xyz":
+curl -v GET http://seenapps.com:3000/xyz
+
+Amend an existing status "xyz" to "BLAH"
 curl -v -X PUT http://seenapps.com:3000/xyz/BLAH

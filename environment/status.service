@@ -1,0 +1,9 @@
+[Unit]
+Description=Status Node Script
+
+[Service]
+Type=simple
+ExecStart=/home/jc/status/status.js
+
+[Install]
+WantedBy=multi-user.target
